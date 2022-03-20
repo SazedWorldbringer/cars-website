@@ -1,0 +1,198 @@
+/*========== Google Fonts ==========*/
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600&display=swap");
+
+/*========== Variables ==========*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Variables ==========*/
+  --clr-primary: hsl(219, 69%, 56%);
+  --clr-primary-alt: hsl(219, 69%, 52%);
+  --clr-title: hsl(219, 8%, 95%);
+  --clr-text: hsl(219, 8%, 75%);
+  --clr-text-light: hsl(219, 4%, 55%);
+  --clr-white: #fff;
+  --clr-body: hsl(219, 4%, 4%);
+  --clr-container: hsl(219, 4%, 7%);
+
+  /*========== Fonts and typography ==========*/
+  --body-font: "Exo", sans-serif;
+  --h1-font: 1.5rem;
+  --h2-font: 1.25rem;
+  --h3-font: 1rem;
+  --normal-font: 0.938rem;
+  --small-font: 0.813rem;
+  --smaller-font: 0.75rem;
+
+  /* Font weights */
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --h1-font: 2.25rem;
+    --h2-font: 1.5rem;
+    --h3-font: 1.25rem;
+    --normal-font: 1rem;
+    --small-font: 0.875rem;
+    --smaller-font: 0.813rem;
+  }
+}
+
+/*========== Base ==========*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font);
+  background-color: var(--clr-body);
+  color: var(--clr-text);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--clr-title);
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+/*========== Utility classes ==========*/
+.container {
+  max-width: 1024px;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section {
+  padding: 4.5rem 0 2rem;
+}
+
+.section__title {
+  font-size: var(--h2-font);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.main {
+  overflow: hidden;
+}
+
+/*========== Header and Nav ==========*/
+.header {
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+}
+
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo,
+.nav__toggle {
+  color: var(--clr-title);
+  display: inline-flex;
+}
+
+.nav__logo {
+  align-items: center;
+  column-gap: 0.25rem;
+  font-weight: var(--font-medium);
+  transition: 300ms;
+}
+
+.nav__logo i {
+  font-size: 1.25rem;
+}
+
+.nav__log:hover {
+  color: clr-primary;
+}
+
+.nav__toggle {
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .nav__menu {
+    position: fixed;
+    background-color: hsla(0, 0%, 100%, 0.1);
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(96px);
+    transition: 300ms;
+  }
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  row-gap: 3rem;
+  padding-top: 9rem;
+}
+
+.nav__link {
+  text-transform: uppercase;
+  color: var(--clr-title);
+  font-size: var(--h2-font);
+  font-weight: var(--font-medium);
+  transition: 300ms;
+}
+
+.nav__link:hover {
+  color: var(--clr-primary);
+}
+
+.nav__close {
+  font-size: 2rem;
+  color: var(--clr-white);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+/* Show menu */
+.show-menu {
+  right: 0;
+}
